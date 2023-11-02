@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('programa', function (Blueprint $table) {
-            $table->string('codprograma',2);
-            $table->char('nomprograma',100);
-            $table->string('facultad',2);
-            $table->primary('codprograma');
-            $table->foreign('facultad')->references('codfacultad')->on('facultad');
+        Schema::create('profesor', function (Blueprint $table) {
+            $table->string('codprofesor',2);
+            $table->string('nomprofesor',100);
+            $table->string('catprofesor',20);
+            $table->primary('codprofesor');
             $table->timestamps();
         });
     }
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('programa');
+        Schema::dropIfExists('profesor');
     }
 };
