@@ -10,7 +10,7 @@
 
 @section('content')
     <div class="d-grid gap-2 d-md-block">
-        <button class="btn btn-primary" type="button">Editar</button>
+        <a type="button" href="{{route('form_registro_fac')}}"  class="btn btn-danger">adicionar</a>
     </div>
     
     <table class="table">
@@ -23,19 +23,28 @@
         </tr>
     </thead>
     <tbody>
+        @php
+            $i = 1;
+
+        @endphp
+        @foreach($faculty as $f)
         <tr>
-        <th scope="row">1</th>
-        <td>200</td>
-        <td>Ingenieria</td>
-        <td>
-            <div class="d-grid gap-2 d-md-block">
-                <button class="btn btn-primary" type="button">Editar</button>
-                <button class="btn btn-primary" type="button">Eliminsr</button>
-            </div>
-        </td>
+            <th scope="row">{{$i}}</th>
+            <td> {{$f->codfacultad}} </td>
+            <td> {{$f->nomfacultad}} </td>
+            <td>
+                <div class="d-grid gap-2 d-md-block">
+                    <button class="btn btn-success" type="button">Editar</button>
+                    <button class="btn btn-danger" type="button">Eliminar</button>
+                </div>
+            </td>
+            @php 
+                $i = $i + 1;
+            @endphp
         </tr>
+        @endforeach
        
-    </tbody>
+    </tbody> 
     </table>
 
 
