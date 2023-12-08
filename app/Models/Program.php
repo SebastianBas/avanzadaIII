@@ -7,5 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Program extends Model
 {
-    use HasFactory;
+    protected $table = 'programa';
+    protected $primaryKey = 'codprograma';
+    public $timestamps = 'true';
+
+    public function faculties(){
+        return $this->belongsTo(Faculty::class, 'facultad', 'codfacultad');
+    }
+
 }

@@ -34,8 +34,8 @@
             <td> {{$f->nomfacultad}} </td>
             <td>
                 <div class="d-grid gap-2 d-md-block">
-                    <button class="btn btn-success" type="button">Editar</button>
-                    <button class="btn btn-danger" type="button">Eliminar</button>
+                    <a href="{{route('editar_fac', $f->codfacultad)}}" class="btn btn-success" >Editar</a>
+                    <a href="{{route('eliminar_fac', $f->codfacultad)}}" class="btn btn-danger" >Eliminar</a>
                 </div>
             </td>
             @php 

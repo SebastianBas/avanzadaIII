@@ -10,10 +10,10 @@
 
 @section('content')
     <div class="d-grid gap-2 d-md-block">
-        <button class="btn btn-primary" type="button">Editar</button>
+        <a type="button" href="{{route('form_registro_prg')}}"  class="btn btn-danger">adicionar</a>
     </div>
-    
-    <table class="table">
+    <br>
+    <table class="table" id="table-programs">
     <thead>
         <tr>
         <th scope="col">#</th>
@@ -33,7 +33,7 @@
             <th scope="row">{{$i}}</th>
             <td> {{$p->codprograma}} </td>
             <td> {{$p->nomprograma}} </td>
-            <td> {{$p->nomfacultad}} </td>
+            <td> {{$p->faculties->nomfacultad}} </td>
             <td>
                 <div class="d-grid gap-2 d-md-block">
                     <button class="btn btn-success" type="button">Editar</button>
@@ -57,6 +57,20 @@
 
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
+@stop
+
+@section('js')
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
+    <script>
+        $(document).ready( function () {
+            $('#table-programs').DataTable({
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.24/i18n/Spanish.json"
+                }
+            });;
+        });
+    </script>
 @stop
 
 
